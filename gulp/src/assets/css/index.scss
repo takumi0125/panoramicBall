@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+@import "reset", "utils";
+
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  @include absoluteTopLeft;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.licenses {
+  @include absoluteBottomLeft;
+  padding: 10px;
+  line-height: 1.8em;
+  font-size: 10px;
+  a {
+    padding: 0 4px;
+  }
+}

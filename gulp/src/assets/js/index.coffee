@@ -70,8 +70,9 @@ class project.Main
     @clickedPoint = new THREE.Vector3 0, 0, -_SPHERE_RADIUS
 
     # control
-    controls = new THREE.OrbitControls @camera
-    controls.zoomSpeed = 0.4
+    @controls = new THREE.TrackballControls @camera
+    @controls.zoomSpeed = 0.4
+
 
     # sphere for img
     @sphereGeometry = new THREE.SphereGeometry _SPHERE_RADIUS, 32, 16
@@ -316,6 +317,8 @@ class project.Main
 
   # 描画更新
   update: =>
+    @controls.update()
+
     if @isTextureVideo
       # 動画
       @currentTextureVideoCanvasCxt.drawImage @currentTextureVideo, 0, 0

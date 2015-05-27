@@ -159,7 +159,7 @@ gulp.task 'concat', ->
   gulp.src [
     "#{SRC_DIR}#{ASSETS_DIR}/js/_lib/jquery.min.js"
     "#{SRC_DIR}#{ASSETS_DIR}/js/_lib/three.min.js"
-    "#{SRC_DIR}#{ASSETS_DIR}/js/_lib/OrbitControls.js"
+    "#{SRC_DIR}#{ASSETS_DIR}/js/_lib/TrackballControls.js"
     "#{SRC_DIR}#{ASSETS_DIR}/js/_lib/TweenMax.min.js"
   ]
   .pipe plumber errorHandler: errorHandler 'concat'
@@ -418,7 +418,7 @@ gulp.task 'bower', ->
       .pipe gulp.dest "#{SRC_DIR}#{ASSETS_DIR}/js/lib"
       .pipe jsFilter.restore()
       .pipe cssFilter
-      .pipe gulp.dest "#{SRC_DIR}#{ASSETS_DIR}/css/_sprites/lib"
+      .pipe gulp.dest "#{SRC_DIR}#{ASSETS_DIR}/css/lib"
       .pipe cssFilter.restore()
       .pipe notify 'done bower task'
 

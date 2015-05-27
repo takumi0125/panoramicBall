@@ -52,7 +52,7 @@
       this.applyTexture = bind(this.applyTexture, this);
       this.createTexture = bind(this.createTexture, this);
       this.showImg = bind(this.showImg, this);
-      var controls, i, j, len, ref, sphereMaterial, vertex;
+      var i, j, len, ref, sphereMaterial, vertex;
       this.$window = $(window);
       this.$body = $('body');
       this.$canvas = $('canvas');
@@ -85,8 +85,8 @@
       this.currentTextureVideo = null;
       this.currentTextureVideoCanvasCxt = null;
       this.clickedPoint = new THREE.Vector3(0, 0, -_SPHERE_RADIUS);
-      controls = new THREE.OrbitControls(this.camera);
-      controls.zoomSpeed = 0.4;
+      this.controls = new THREE.TrackballControls(this.camera);
+      this.controls.zoomSpeed = 0.4;
       this.sphereGeometry = new THREE.SphereGeometry(_SPHERE_RADIUS, 32, 16);
       this.sphereVertices = [];
       ref = this.sphereGeometry.vertices;
@@ -362,6 +362,7 @@
     };
 
     Main.prototype.update = function() {
+      this.controls.update();
       if (this.isTextureVideo) {
         this.currentTextureVideoCanvasCxt.drawImage(this.currentTextureVideo, 0, 0);
         this.textures[this.currentIndex].needsUpdate = true;

@@ -52,7 +52,7 @@ class project.Main
       canvas: @canvasElm
       antialias: true
       alpha: true
-
+    @renderer.setPixelRatio window.devicePixelRatio
 
     # texture
     @currentIndex = 0

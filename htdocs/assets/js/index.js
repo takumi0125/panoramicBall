@@ -66,6 +66,7 @@
         antialias: true,
         alpha: true
       });
+      this.renderer.setPixelRatio(window.devicePixelRatio);
       this.currentIndex = 0;
       this.textures = [];
       this.textureVideos = [];
